@@ -22,15 +22,15 @@ input[type="email"],
 input[type="password"],
 input[type="date"],
 select {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   padding: 6px;
-  width: 20%; 
+  width: 100%;
 }
 
 button {
   background-color: #008000;
   border: none;
-  color:#ffffff;
+  color: #ffffff;
   cursor: pointer;
   padding: 10px 20px;
 }
