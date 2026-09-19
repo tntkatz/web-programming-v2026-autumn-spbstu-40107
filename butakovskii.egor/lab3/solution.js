@@ -1,33 +1,46 @@
-// Экспортируйте отсюда функцию с именем из контракта вашего варианта.
 function maxSlidingWindow(arr, k) {
-  if (!arr || arr.length === 0 || k <= 0) {
-    return [];
+  if (!Array.isArray(arr)) {
+    throw new TypeError('First argument must be an Array');
+  }
+  if (typeof k !== 'number' || !Number.isInteger(k)) {
+    throw new TypeError('Window size k must be an integer');
+  }
+  if (k <= 0) {
+    throw new RangeError('Window size k must be greater than 0');
   }
 
   const n = arr.length;
-  if (k > n) {
-    return [Math.max(...arr)];
-  }
-  if (k === 1) {
-    return [...arr];
+  if (n === 0 || k > n) {
+    return [];
   }
 
-  const result = [];
+  const result = new Array(n - k + 1);
   const deque = [];
+  let head = 0;
 
   for (let i = 0; i < n; i++) {
-    if (deque.length > 0 && deque[0] < i - k + 1) {
-      deque.shift();
+    const val = arr[i];
+    if (typeof val !== 'number' || Number.isNaN(val)) {
+      throw new TypeError(`Element at index ${i} is not a valid number`);
     }
 
-    while (deque.length > 0 && arr[deque[deque.length - 1]] <= arr[i]) {
+    if (head < deque.length && deque[head] < i - k + 1) {
+      head++;
+    }
+
+    while (deque.length > head && arr[deque[deque.length - 1]] <= val) {
       deque.pop();
     }
 
     deque.push(i);
 
+    if (head > 2048 && head > deque.length >> 1) {
+      deque.splice(0, head);
+      head = 0;
+    }
+
     if (i >= k - 1) {
-      result.push(arr[deque[0]]);
+      result[i - k + 1] = arr[deque[head]];
     }
   }
 
