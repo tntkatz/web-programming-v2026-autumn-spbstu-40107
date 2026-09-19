@@ -10,33 +10,34 @@
     <main>
       <h1>Лабораторная работа 1</h1>
       <form>
-        <p>Имя:</p>
-        <input type="text" />
+        <label for="first-name">Имя:</label>
+        <input type="text" id="first-name" name="first_name" />
 
-        <p>Фамилия:</p>
-        <input type="text" />
+        <label for="last-name">Фамилия:</label>
+        <input type="text" id="last-name" name="last_name" />
 
-        <p>Email:</p>
-        <input type="email" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
 
-        <p>Пароль:</p>
-        <input type="password" autocomplete="new-password" />
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" autocomplete="new-password" />
 
-        <p>Подтверждение пароля:</p>
-        <input type="password" autocomplete="new-password" />
+        <label for="password-confirm">Подтверждение пароля:</label>
+        <input type="password" id="password-confirm" name="password_confirm" autocomplete="new-password" />
 
-        <p>Дата рождения:</p>
-        <input type="date" />
+        <label for="birthdate">Дата рождения:</label>
+        <input type="date" id="birthdate" name="birthdate" />
 
-        <p>Страна</p>
-        <select>
+        <label for="country">Страна:</label>
+        <select id="country" name="country">
           <option value="ru">Россия</option>
           <option value="by">Беларусь</option>
           <option value="kz">Казахстан</option>
         </select>
 
         <br /><br />
-        <input type="checkbox" /> Я согласен с условиями
+        <input type="checkbox" id="terms" name="terms" />
+        <label for="terms">Я согласен с условиями</label>
 
         <br /><br />
         <button type="submit">Отправить</button>
