@@ -1,10 +1,12 @@
 // Экспортируйте отсюда функцию с именем из контракта вашего варианта.
 function zipArrays(...arrays) {
-  if (arrays.length === 0) {
-    return [];
+  for (const arr of arrays) {
+    if (!Array.isArray(arr)) {
+      throw new TypeError('All arguments must be arrays');
+    }
   }
-
-  if (arrays.every((arr) => arr.length === 0)) {
+  
+  if (arrays.length === 0) {
     return [];
   }
 
