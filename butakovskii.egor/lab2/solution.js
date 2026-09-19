@@ -5,7 +5,7 @@ function zipArrays(...arrays) {
       throw new TypeError('All arguments must be arrays');
     }
   }
-  
+
   if (arrays.length === 0) {
     return [];
   }
