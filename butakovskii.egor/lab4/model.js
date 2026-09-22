@@ -44,7 +44,7 @@ export function getUniqueFriends(users) {
   return Array.from(set);
 }
 
-export function getUsersByCommonFriend(users, friendId) {
+export function findUsersWithFriend(users, friendId) {
   const targetId = Number(friendId);
   return users.filter((user) => user.friends.includes(targetId));
 }
