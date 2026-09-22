@@ -61,7 +61,9 @@ class App {
     const id = Number(formData.get('id'));
     const name = String(formData.get('name')).trim();
 
-    if (!id || !name) return;
+    if (!id || !name) {
+      return;
+    }
 
     if (this.users.some((u) => u.id === id)) {
       alert('Пользователь с таким ID уже существует');
@@ -94,7 +96,9 @@ class App {
   }
 
   async handleAddFriend(userId, friendId) {
-    if (!friendId || isNaN(friendId)) return;
+    if (!friendId || isNaN(friendId)) {
+      return;
+    }
 
     await asyncOperation(() => {
       const user = this.users.find((u) => u.id === userId);
@@ -151,6 +155,7 @@ class App {
       } else {
         user.friends.forEach((fId) => {
           const badge = document.createElement('span');
+
           badge.className = 'friend-item';
           badge.textContent = fId;
 

@@ -1,4 +1,3 @@
-// Экспортируйте класс и функции коллекций с именами из контракта вашего варианта.
 export class User {
   constructor(id, name, friends = []) {
     this.id = Number(id);
@@ -24,21 +23,24 @@ export class User {
 }
 
 export function groupUsersByFriendCount(users) {
-  return users.reduce((acc, user) => {
+  const result = {};
+  for (const user of users) {
     const count = user.friendCount;
-    if (!acc[count]) {
-      acc[count] = [];
+    if (!result[count]) {
+      result[count] = [];
     }
-    acc[count].push(user);
-    return acc;
-  }, {});
+    result[count].push(user);
+  }
+  return result;
 }
 
 export function getUniqueFriends(users) {
   const set = new Set();
-  users.forEach((user) => {
-    user.friends.forEach((fId) => set.add(fId));
-  });
+  for (const user of users) {
+    for (const fId of user.friends) {
+      set.add(fId);
+    }
+  }
   return Array.from(set);
 }
 
