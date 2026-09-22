@@ -23,13 +23,13 @@ export class User {
 }
 
 export function groupUsersByFriendCount(users) {
-  const result = {};
+  const result = new Map();
   for (const user of users) {
-    const count = user.friendCount;
-    if (!result[count]) {
-      result[count] = [];
+    const count = Number(user.friendCount);
+    if (!result.has(count)) {
+      result.set(count, []);
     }
-    result[count].push(user);
+    result.get(count).push(user);
   }
   return result;
 }
