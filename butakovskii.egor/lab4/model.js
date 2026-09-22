@@ -49,11 +49,11 @@ export function findUsersWithFriend(users, friendId) {
   return users.filter((user) => user.friends.includes(targetId));
 }
 
-export function getUsersWithFriendsGreaterThan(users, minFriends) {
+export function findUsersAboveFriendCount(users, minFriends) {
   const threshold = Number(minFriends);
   return users.filter((user) => user.friendCount > threshold);
 }
 
-export function getUsersWithoutFriends(users) {
+export function findUsersWithoutFriends(users) {
   return users.filter((user) => user.friendCount === 0);
 }
