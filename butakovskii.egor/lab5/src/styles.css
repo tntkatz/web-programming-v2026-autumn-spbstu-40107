@@ -34,19 +34,19 @@ body {
 
 .book-card h2 {
   font-size: 1.1rem;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 .author {
   color: #666;
   font-size: 0.9rem;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 .price {
   font-weight: bold;
   font-size: 1.2rem;
-  margin: auto 0 15px 0;
+  margin: auto 0 15px;
 }
 
 .book-card button {
@@ -58,8 +58,20 @@ body {
   cursor: pointer;
 }
 
+.cart-actions button {
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .book-card button:hover {
   background: #0056b3;
+}
+
+.cart-actions button:hover {
+  background: #e1e1e1;
 }
 
 hr {
@@ -96,18 +108,6 @@ hr {
 .cart-actions {
   display: flex;
   gap: 10px;
-}
-
-.cart-actions button {
-  background: #f1f1f1;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.cart-actions button:hover {
-  background: #e1e1e1;
 }
 
 .cart-total {
